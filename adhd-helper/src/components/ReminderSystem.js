@@ -73,7 +73,7 @@ function ReminderSystem() {
           );
         }
       });
-    }, 30000); // Check every 30 seconds
+    }, 60000); // Check every minute
 
     return () => clearInterval(checkReminders);
   }, [reminders, showNotification]);
@@ -102,7 +102,7 @@ function ReminderSystem() {
     e.preventDefault();
     if (newReminder.title && newReminder.time) {
       const reminder = {
-        id: Date.now(),
+        id: crypto.randomUUID(),
         ...newReminder,
         notified: false,
         createdAt: new Date().toISOString()

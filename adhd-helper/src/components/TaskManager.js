@@ -22,7 +22,7 @@ function TaskManager() {
     e.preventDefault();
     if (newTask.trim()) {
       const task = {
-        id: Date.now(),
+        id: crypto.randomUUID(),
         title: newTask,
         details: taskDetails,
         completed: false,
@@ -50,7 +50,7 @@ function TaskManager() {
       if (task.id === taskId) {
         return {
           ...task,
-          subtasks: [...task.subtasks, { id: Date.now(), title: subtaskTitle, completed: false }]
+          subtasks: [...task.subtasks, { id: crypto.randomUUID(), title: subtaskTitle, completed: false }]
         };
       }
       return task;

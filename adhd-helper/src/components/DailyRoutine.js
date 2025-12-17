@@ -52,7 +52,7 @@ function DailyRoutine() {
     e.preventDefault();
     if (newRoutine.time && newRoutine.title) {
       const routine = {
-        id: Date.now(),
+        id: crypto.randomUUID(),
         ...newRoutine,
         completed: false
       };
